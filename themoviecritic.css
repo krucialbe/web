@@ -1,27 +1,14 @@
-@media only screen and (max-width: 600px) {
-    /* Styles for screens smaller than 600px */
-    body {
-        background-size: cover; /* Adjust background size */
-    }
-    .header {
-        /* Adjust header styles */
-        min-width: unset;
-        max-width: unset;
-    }
-    .movie-box {
-        /* Adjust movie box styles */
-        height: auto;
-        width: 90%;
-        margin: 10px auto;
-    }
-}
-
 body {
     background-color: #FAD6A5;
     background-size: 150%;
     background-repeat: no-repeat;
     background-position: 100px 200px;
     background-position: center top;
+    min-height: 100vh; /* Always fill the viewport height */
+    margin: 0; /* Remove any default margin */
+    display: flex; /* Allow vertical centering */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: flex-end; /* Align content at the bottom */
 }
 
 .topofpage {
