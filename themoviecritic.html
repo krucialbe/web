@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Movie Critic</title>
+    <meta name="description"
+        content="A site that shows the ratings of the last 15 movies I've watched, and allows additional movies to be added.">
+    <meta name="author" content="Sedrick Moore II">
+    <title>Experience LA</title>
+    <link rel="stylesheet" href="themoviecritic.css">
+    <script type="text/javascript" src="themoviecritic.js"></script>
+</head>
+
+<body id="body">
+    <div class="topofpage">
+        <header>
+            <div class="header">
+                <h1>The Movie Critic</h1>
+                <h3>Displaying <span id="movieCount"></span> movies</h3>
+            </div>
+        </header>
+
+        <div class="fbuttons">
+            <button id="addButton" onclick="addBtn(),hideSortDropdown()
+            hideFilterDropdown()
+            hideFilterRatingDropdown()">Add</button>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="dropdownClick(event, '.sort-dropdown-content'),hideFilterDropdown()
+                hideFilterRatingDropdown()">Sort</button>
+                <div class="sort-dropdown-content">
+                    <button id="sortDateABtn" onclick="sortingBtn('date', 'asc')">Date Added (asc) (default)</button>
+                    <button id="sortDateDBtn" onclick="sortingBtn('date', 'desc')">Date Added (desc)</button>
+                    <button id="sortRatingABtn" onclick="sortingBtn('rating', 'asc')">User Rating (asc)</button>
+                    <button id="sortRatingDBtn" onclick="sortingBtn('rating', 'desc')">User Rating (desc)</button>
+                    <button id="sortCriticABtn" onclick="sortingBtn('critic', 'asc')">Critic Score (asc)</button>
+                    <button id="sortCriticDBtn" onclick="sortingBtn('critic', 'desc')">Critic Score (desc)</button>
+                    <button id="sortAudienceABtn" onclick="sortingBtn('audience', 'asc')">Audience Score (asc)</button>
+                    <button id="sortAudienceDBtn" onclick="sortingBtn('audience', 'desc')">Audience Score
+                        (desc)</button>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="dropdownClick(event, '.filter-dropdown-content'),hideSortDropdown(), hideFilterRatingDropdown()">Filters</button>
+                <div class="filter-dropdown-content">
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="dropdownClick(event, '.filter-rating-content')">Filter By Rating</button>
+                        <div class="filter-rating-content">
+                            <button id="filterRatingEqual" onclick="filterBtn('userRating', 'equal'),hideFilterDropdown()
+                            hideFilterRatingDropdown()">By Number</button>
+                            <button id="filterRatingBelow" onclick="filterBtn('userRating', 'below'),hideFilterDropdown()
+                            hideFilterRatingDropdown()">Below Number</button>
+                            <button id="filterRatingAbove" onclick="filterBtn('userRating', 'above'),hideFilterDropdown()
+                            hideFilterRatingDropdown()">Above Number</button>
+                        </div>
+                    </div>
+                    <button id="filterGenre" onclick="filterBtn('genres'),hideFilterDropdown()
+                    hideFilterRatingDropdown()">Filter By Genre</button>
+                    <button id="clearFilter" onclick="filterBtn('clear'),hideFilterDropdown()
+                    hideFilterRatingDropdown()">Clear</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="addModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+
+                <label for="movieName">Movie Name:</label>
+                <input type="text" id="movieName" name="movieName"><br><br>
+
+                <label for="genres">Genres:</label>
+                <input type="text" id="genres" name="genres"><br><br>
+
+                <label for="year">Year:</label>
+                <input type="text" id="year" name="year"><br><br>
+
+                <label for="director">Director:</label>
+                <input type="text" id="director" name="director"><br><br>
+
+                <label for="favActors">Favorite Actors:</label>
+                <input type="text" id="favActors" name="favActors"><br><br>
+
+                <label for="userRating">Rating:</label>
+                <input type="text" id="userRating" name="userRating"><br><br>
+
+                <label for="rtScores">Critic Score:</label>
+                <input type="text" id="criticScore" name="criticScore"><br><br>
+
+                <label for="rtScores">Audience Score:</label>
+                <input type="text" id="audScore" name="audScore"><br><br>
+
+                <label for="poster">Poster:</label>
+                <input type="text" id="poster" name="poster"><br><br>
+
+                <label for="review">Review:</label>
+                <textarea id="review" rows="4" cols="50"></textarea>
+
+                <button onclick="addMovie()">Add Movie</button>
+                <button id="updateButton" onclick="updateMovie()">Update Movie</button>
+                <button onclick="clearForm()">Clear Form</button>
+
+            </div>
+        </div>
+
+        <div id="main-container">
+            <div id="main"></div>
+        </div>
+
+        <script>
+            window.onload = function () {
+                displayMovieReviews(users);
+            };
+
+            window.addEventListener('scroll', function() {
+                hideSortDropdown();
+                hideFilterDropdown();
+                hideFilterRatingDropdown();
+            });
+
+            window.addEventListener('click', function() {
+                hideSortDropdown()
+                hideFilterDropdown()
+                hideFilterRatingDropdown()
+            });
+
+            document.addEventListener('keydown', function(event) {
+            if (event.keyCode === 27) {
+                closeModal();
+                }
+            });
+
+        </script>
+</body>
+
+
+</html>
