@@ -1,0 +1,498 @@
+body {
+    background-color: peachpuff;
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-position: 100px 200px;
+    background-position: center top;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.header {
+    display: block;
+    letter-spacing: .2em;
+    font-family: monospace, 'Courier New', Courier;
+    background: #c56b84;
+    color: linen;
+    box-shadow: 10px 10px 10px maroon;
+    text-shadow: 10px 10px 10px maroon;
+    border: 5px #fa5f55;
+    border-width: 3px;
+    border-bottom: 3px maroon solid;
+    border-radius: 25px;
+    padding: 5px;
+    margin: 25px auto;
+    min-width: 500px;
+    max-width: 500px;
+    text-align: center;
+
+}
+
+.function-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    background-color: peachpuff;
+    padding: 5px;
+    z-index: 999;
+    width: 100%;
+    box-shadow: 0px -5px 10px rgba(128, 0, 0, 0.413);
+}
+
+.function-container button {
+    background-color: #c56b84;
+    color: linen;
+    font-weight: bolder;
+    text-shadow: 10px 10px 10px maroon;
+    box-shadow: 10px 10px 10px maroon;
+    border: 1px solid maroon;
+    border-radius: 4px;
+    margin: 0 30px;
+    letter-spacing: .2em;
+    width: 125px;
+    text-wrap: wrap;
+}
+
+.function-container button:hover {
+    background-color: maroon;
+}
+
+.sort-dropdown-content {
+    display: none;
+    position: fixed;
+    min-width: 160px;
+    box-shadow: 0px -8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: left;
+    border-radius: 4px;
+    background-color: #c56b84;
+    padding: 5px;
+    width: 175px;
+    margin-top: -424px;
+}
+
+.sort-dropdown-content button {
+    background-color: #c56b8500;
+    color: linen;
+    text-align: left;
+    font-weight: bolder;
+    border: none;
+    padding: 10px;
+    margin-left: 1%;
+    box-shadow: none;
+    text-shadow: 5px 5px 5px maroon;
+    width: 175px;
+}
+
+.sort-dropdown-content button:hover {
+    background-color: maroon;
+}
+
+.filter-dropdown-content {
+    display: none;
+    position: fixed;
+    min-width: 160px;
+    box-shadow: 0px -8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: left;
+    border-radius: 4px;
+    background-color: #c56b84;
+    padding: 5px;
+    width: 175px;
+    margin-top: -138px;
+}
+
+.filter-dropdown-content button {
+    background-color: #c56b8500;
+    color: linen;
+    text-align: left;
+    font-weight: bolder;
+    border: none;
+    padding: 10px;
+    margin-left: 1%;
+    box-shadow: none;
+    text-shadow: 5px 5px 5px maroon;
+    width: 175px;
+}
+
+.filter-dropdown-content button:hover {
+    background-color: maroon;
+}
+
+.filter-rating-content {
+    display: none;
+    position: absolute;
+    text-align: left;
+    border-radius: 4px;
+    background-color: #c56b84;
+    width: 185px;
+    margin-top: -147px;
+    margin-left: -5px;
+}
+
+.filter-rating-content button {
+    background-color: #c56b8500;
+    color: linen;
+    text-align: left;
+    font-weight: bolder;
+    border: none;
+    padding: 10px;
+    margin-left: 1%;
+    box-shadow: none;
+    text-shadow: 5px 5px 5px maroon;
+    width: 175px;
+}
+
+.filter-rating-content button:hover {
+    background-color: maroon;
+}
+
+#main-container {
+    display: flex;
+    overflow-x: auto;
+    /* enable horizontal scrolling */
+    white-space: nowrap;
+
+    padding: 20px;
+
+}
+
+.movie-box {
+    position: relative;
+
+    display: inline-block;
+    text-wrap: break-word;
+    height: 650px;
+    width: 500px;
+
+    margin-right: 2%;
+
+    vertical-align: top;
+
+    text-align: center;
+    letter-spacing: .2em;
+    font-family: monospace, 'Courier New', Courier;
+    font-size: 12px;
+    background: rgba(52, 52, 209, 0.763);
+    color: linen;
+    box-shadow: 10px 10px 10px maroon;
+    text-shadow: 10px 10px 10px rgba(255, 13, 13, 0.487);
+    border: 5px #fa5f55;
+    border-width: 3px;
+    padding: 20px;
+    border-bottom: 3px maroon solid;
+    border-radius: 25px;
+    text-wrap: wrap;
+
+}
+
+.movie-box:first-child {
+    margin-left: calc((100vw - 590px) / 2);
+    /* move the first box to the right side of the container */
+}
+
+.movie-box:last-child {
+
+    margin-right: calc((100vw - 590px) / 2);
+
+}
+
+.movie-box img {
+    border: 1px solid linen;
+    border-radius: 4px;
+    padding: 5px;
+    width: 175px;
+}
+
+.button-container {
+    position: absolute;
+    top: 660px;
+    right: 5px;
+}
+
+.movie-box button {
+    bottom: 5px;
+    left: 10px;
+    right: 10px;
+    transform: translateX(-50%);
+    background-color: maroon;
+    color: linen;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 1px solid rgba(52, 52, 209, 0.763);
+    border-radius: 5px;
+    letter-spacing: .2em;
+}
+
+.movie-box button:hover {
+    background-color: #c56b84;
+    ;
+}
+
+.rating {
+    color: goldenrod;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.101);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* scrollbar width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* scrollbar track */
+::-webkit-scrollbar-track {
+    background: peachpuff;
+}
+
+/* scrollbar background */
+::-webkit-scrollbar-thumb {
+    background: rgba(128, 0, 0, 0.500);
+}
+
+/* scrollbar on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: maroon
+}
+
+.modal {
+    display: none;
+    /* hidden by default */
+    position: fixed;
+    /* stay in place */
+    z-index: 1;
+    /* sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* enable scrolling if needed */
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #c56b84;
+    margin: 15% auto;
+    padding: 20px;
+    letter-spacing: .2em;
+    font-family: monospace, 'Courier New', Courier;
+    background: #c56b84;
+    color: peachpuff;
+    box-shadow: 10px 10px 10px maroon;
+    border: 5px #fa5f55;
+    border-width: 3px;
+    border-bottom: 3px maroon solid;
+    border-radius: 25px;
+    width: 50%;
+    min-width: 700px;
+    position: relative;
+}
+
+.modal-content button {
+    background-color: maroon;
+    color: linen;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    border: 1px solid rgba(52, 52, 209, 0.763);
+    border-radius: 5px;
+    letter-spacing: .2em;
+    margin: 5px;
+    width: 50%;
+}
+
+.modal-content button:hover {
+    background-color: rgba(52, 52, 209, 0.763);
+}
+
+.modal-content input {
+    display: flex;
+    margin: 0 auto;
+    background-color: linen;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    border: 1px solid maroon;
+    border-radius: 5px;
+    letter-spacing: .2em;
+    text-align: center;
+    min-width: 600px;
+}
+
+.modal-content textarea {
+    display: flex;
+    margin: 0 auto;
+    background-color: linen;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    border: 1px solid maroon;
+    border-radius: 5px;
+    letter-spacing: .2em;
+    text-align: left;
+    min-width: 600px;
+    min-height: 100px;
+    resize: vertical;
+    /* allow vertical resizing */
+}
+
+
+/* close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: peachpuff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.help-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+
+.help-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #c56b84;
+    margin: 15% auto;
+    padding: 20px;
+    letter-spacing: .2em;
+    font-family: monospace, 'Courier New', Courier;
+    color: peachpuff;
+    box-shadow: 10px 10px 10px maroon;
+    border: 5px #fa5f55;
+    border-width: 3px;
+    border-bottom: 3px maroon solid;
+    border-radius: 25px;
+    width: 50%;
+    min-width: 200px;
+    position: relative;
+}
+
+/* all search elements */
+.search-container {
+
+    position: fixed;
+    top: 0;
+    /* stick it to the top of the screen */
+    left: 50%;
+    transform: translateX(-50%);
+    /* adjust for centering */
+    display: flex;
+    justify-content: center;
+    background-color: peachpuff;
+    padding: 5px;
+    z-index: 999;
+    /* make sure it's above other content */
+    width: 100%;
+    /* Occupy full width */
+    box-shadow: 0px 5px 10px rgba(128, 0, 0, 0.413);
+}
+
+/* search box */
+#searchBox {
+    background-color: peachpuff;
+    border: none;
+    width: 200px;
+    height: 38px;
+    outline: none;
+}
+
+/* title and actor buttons */
+.search-options {
+    display: flex;
+    flex-direction: row;
+}
+
+/* title button */
+.search-option-titles {
+    padding: 20px, 10px, 16px, 16px;
+    border: none;
+    background-color: #c56b84;
+    color: linen;
+    cursor: pointer;
+    font-size: 16px;
+    height: 40px;
+}
+
+/* actor button */
+.search-option-actors {
+    padding: 20px, 10px, 16px, 16px;
+    border: none;
+    background-color: peachpuff;
+    color: #c56b84;
+    cursor: pointer;
+    font-size: 16px;
+    height: 40px;
+}
+
+/* search and return buttons */
+.searchBtns button {
+    font-weight: bolder;
+    border: none;
+    margin: 0 10px;
+    letter-spacing: .2em;
+    width: 100px;
+    max-height: 20px;
+    font-size: 16px;
+}
+
+.search-container ::placeholder {
+    color: #c56b84;
+    font-weight: bold;
+}
+
+.returnList {
+    background-color: peachpuff;
+    color: #c56b84;
+}
+
+.searchBtn {
+    background-color: #c56b84;
+    color: linen
+}
+
+
+/* search and return buttons when hovered over*/
+.returnList:hover {
+
+    background-color: rgba(255, 218, 185, 0.25);
+    color: #c56b853b;
+}
+
+.searchBtn:hover {
+    background-color: #c56b8578;
+    color: rgba(250, 240, 230, 0.25)
+}
